@@ -36,6 +36,7 @@ send me a DM to check your pull request
 
  Wait for my code review.
  */
+#include <iostream>
 
 struct FloatType
 {
@@ -53,6 +54,10 @@ struct FloatType
     }
     float divide(float lhs, float rhs)
     {
+        if(rhs == 0)
+        {
+            std::cout << "Warning, divide by zero! Detected \n"; 
+        }
         return lhs / rhs;
     }
 };
@@ -73,6 +78,10 @@ struct DoubleType
     }
     double divide(double lhs, double rhs)
     {
+        if(rhs == 0)
+        {
+            std::cout << "Warning, divide by zero! Detected \n"; 
+        }
         return lhs / rhs;
     }
 };
@@ -93,12 +102,16 @@ struct IntType
     }
     int divide(int lhs, int rhs)
     {
-        if(rhs == 0) return 0;
-        else return lhs / rhs;
+        if(rhs == 0)
+        {
+            std::cout << "Warning, divide by zero! Detected \n"; 
+            return 0;
+        }
+        return lhs / rhs;
     }
 };
 
-#include <iostream>
+
 int main()
 {
     FloatType floatInstance;
